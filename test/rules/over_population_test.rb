@@ -1,4 +1,4 @@
-require "../test_helper"
+require_relative "../test_helper"
 
 describe Rules::OverPopulation do
   describe "#apply_to" do
