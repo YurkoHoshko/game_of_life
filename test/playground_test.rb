@@ -1,5 +1,4 @@
-require "minitest/autorun"
-require_relative "../lib/playground"
+require "./test_helper"
 
 describe Playground do
   before do
@@ -35,6 +34,28 @@ describe Playground do
       cell = @playground.cells.first
       neighbours = @playground.neighbours_of(cell)
       assert_kind_of Cell, neighbours.first
+    end
+
+    # 0 1 2
+    # 3 4 5
+    # 6 7 8
+
+    it "should return only neighbours of supplied cell (first case)" do
+      cell = @playground.cells.first
+      neighbours = @playground.neighbours_of(cell)
+      neighbours.count.must_equal 3
+    end
+
+    it "should return only neighbours of supplied cell (second case)" do
+      cell = @playground.cells[1]
+      neighbours = @playground.neighbours_of(cell)
+      neighbours.count.must_equal 5
+    end
+
+    it "should return only neighbours of supplied cell (third case)" do
+      cell = @playground.cells[4]
+      neighbours = @playground.neighbours_of(cell)
+      neighbours.count.must_equal 8
     end
   end
 end

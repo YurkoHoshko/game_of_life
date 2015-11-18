@@ -6,4 +6,12 @@ class Cell
     @y = y
     @alive = alive
   end
+
+  def die
+    @alive = false
+  end
+
+  def reproduce
+    @alive = true
+  end
 end
